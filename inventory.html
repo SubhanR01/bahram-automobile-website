@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0c0b">
+  <title>Inventory — Bahram Automobile</title>
+  <meta name="description" content="Browse the full Bahram Automobile inventory. Filter by make, model, price, year, mileage, fuel type, transmission, and body type.">
+  <link rel="canonical" href="inventory.html">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__brand" href="index.html">Bahram <span>Automobile</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="inventory.html" aria-current="page" data-i18n="nav.inventory">Inventory</a></li>
+        <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
+        <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang-switcher" id="lang-switcher" aria-label="Language"></div>
+      <a class="btn btn--outline btn--sm" href="contact.html" data-i18n="nav.contactUs">Contact Us</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="nav.menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-bottom:0;">
+      <div class="section__head" style="border-bottom:none;margin-bottom:0;">
+        <div>
+          <p class="section__eyebrow micro" data-i18n="inventory.eyebrow">Live inventory</p>
+          <h1 class="section__title" data-i18n="inventory.title">Every car currently on our lot</h1>
+        </div>
+        <p class="section__aside" data-i18n="inventory.aside">Filter by make, price, mileage, fuel, transmission, or body type. Tick "Compare" on up to three cars to see them side by side.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:24px;">
+      <form class="filters" id="filter-form">
+        <div class="field">
+          <label for="f-q" data-i18n="inventory.search">Search</label>
+          <input type="text" id="f-q" name="q" placeholder="e.g. C 180, i20, black..." data-i18n-placeholder="inventory.searchPlaceholder">
+        </div>
+        <div class="field">
+          <label for="f-make" data-i18n="inventory.make">Make</label>
+          <select id="f-make" name="make"></select>
+        </div>
+        <div class="field">
+          <label for="f-body" data-i18n="inventory.bodyType">Body type</label>
+          <select id="f-body" name="bodyType"></select>
+        </div>
+        <div class="field">
+          <label for="f-fuel" data-i18n="inventory.fuel">Fuel type</label>
+          <select id="f-fuel" name="fuel"></select>
+        </div>
+        <div class="field">
+          <label for="f-trans" data-i18n="inventory.transmission">Transmission</label>
+          <select id="f-trans" name="transmission"></select>
+        </div>
+        <div class="field">
+          <label for="f-price" data-i18n="inventory.maxPrice">Max price (€)</label>
+          <input type="number" id="f-price" name="priceMax" placeholder="Any">
+        </div>
+        <div class="field">
+          <label for="f-year" data-i18n="inventory.minYear">Min year</label>
+          <input type="number" id="f-year" name="yearMin" placeholder="Any">
+        </div>
+        <div class="field">
+          <label for="f-mileage" data-i18n="inventory.maxMileage">Max mileage</label>
+          <input type="number" id="f-mileage" name="mileageMax" placeholder="Any">
+        </div>
+        <div class="filters__row">
+          <span class="results-count" id="results-count"></span>
+          <button class="btn btn--outline btn--sm" type="button" id="filter-reset" data-i18n="inventory.reset">Reset filters</button>
+        </div>
+      </form>
+
+      <div class="card-grid" id="inventory-grid" data-reveal></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__brand">Bahram Automobile</p>
+        <p data-i18n="footer.tagline">Hand-picked, fully inspected new and used cars. Message us on WhatsApp or Instagram to book a viewing.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <ul>
+          <li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li>
+          <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
+          <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+          <li><a href="compare.html" data-i18n="nav.compare">Compare vehicles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.company">Company</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="footer.aboutUs">About us</a></li>
+          <li><a href="terms.html" data-i18n="footer.terms">Terms &amp; privacy</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact">Contact</h4>
+        <ul>
+          <li><a href="tel:015901671119">015 901 671 119</a></li>
+          <li><a href="mailto:hello@bahramautomobile.example">hello@bahramautomobile.example</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© <span id="year"></span> Bahram Automobile. <span data-i18n="footer.rights">All rights reserved.</span></span>
+    </div>
+  </footer>
+
+  <div class="sticky-contact" id="sticky-contact"></div>
+  <div class="compare-tray" id="compare-tray"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/inventory-render.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

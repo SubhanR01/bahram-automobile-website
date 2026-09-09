@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0c0b">
+  <title>Finance — Bahram Automobile</title>
+  <meta name="description" content="Estimate your monthly payment with the Bahram Automobile finance calculator, then apply for finance.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .calc-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+    .calc-result { padding: 28px; background: var(--carbon); color: var(--paper); }
+    .calc-result .figure { font-size: 44px; font-weight: 800; color: var(--heritage); margin: 6px 0 18px; }
+    .calc-result dl { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; font-size: 14px; }
+    .calc-result dt { color: var(--alloy); }
+    @media (max-width: 900px) { .calc-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__brand" href="index.html">Bahram <span>Automobile</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li>
+        <li><a href="finance.html" aria-current="page" data-i18n="nav.finance">Finance</a></li>
+        <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang-switcher" id="lang-switcher" aria-label="Language"></div>
+      <a class="btn btn--outline btn--sm" href="inventory.html" data-i18n="nav.viewInventory">View Inventory</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="nav.menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="finance.eyebrow">Finance</p><h1 class="section__title" data-i18n="finance.title">Estimate your payment</h1></div>
+        <p class="section__aside" data-i18n="finance.aside">A quick estimate to plan around — your actual rate depends on your lender and credit profile.</p>
+      </div>
+
+      <div class="calc-layout">
+        <form class="form" id="finance-calculator">
+          <div class="field">
+            <label for="fc-price" data-i18n="finance.price">Vehicle price (€)</label>
+            <input type="number" id="fc-price" name="price" value="20000" min="0" step="100">
+          </div>
+          <div class="field">
+            <label for="fc-deposit"><span data-i18n="finance.deposit">Deposit</span>: <span id="deposit-pct-value">10%</span></label>
+            <input type="range" id="fc-deposit" name="depositPct" min="0" max="50" step="5" value="10">
+          </div>
+          <div class="field">
+            <label for="fc-term" data-i18n="finance.term">Term</label>
+            <select id="fc-term" name="term">
+              <option value="24">24 months</option>
+              <option value="36">36 months</option>
+              <option value="48" selected>48 months</option>
+              <option value="60">60 months</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="calc-result" aria-live="polite">
+          <p class="micro" style="color:var(--alloy);" data-i18n="finance.monthlyEstimate">Estimated monthly payment</p>
+          <p class="figure" id="finance-payment">—</p>
+          <dl>
+            <dt data-i18n="finance.deposit">Deposit</dt><dd id="finance-deposit">—</dd>
+            <dt data-i18n="finance.amountFinanced">Amount financed</dt><dd id="finance-principal">—</dd>
+            <dt data-i18n="finance.rateAssumption">Rate assumption</dt><dd id="finance-apr">—</dd>
+          </dl>
+          <p class="form__note" style="color:var(--alloy);margin-top:16px;" data-i18n="finance.disclaimer">Estimate only — not a credit offer. Final terms are confirmed by our finance partner after application.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="apply">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="finance.applyEyebrow">Next step</p><h2 class="section__title" data-i18n="finance.applyTitle">Finance application</h2></div>
+        <p class="section__aside" data-i18n="finance.applyAside">Send us your details and we'll follow up with real terms from our finance partners.</p>
+      </div>
+      <form class="form form--2col" data-lead-form="finance" style="max-width:820px;">
+        <div class="field"><label for="fa-name" data-i18n="form.fullName">Full name *</label><input id="fa-name" name="name" required></div>
+        <div class="field"><label for="fa-phone" data-i18n="form.phone">Phone *</label><input id="fa-phone" name="phone" type="tel" required></div>
+        <div class="field"><label for="fa-email" data-i18n="form.email">Email</label><input id="fa-email" name="email" type="email"></div>
+        <div class="field"><label for="application-price-echo" data-i18n="finance.price">Estimated vehicle price</label><input id="application-price-echo" name="Vehicle price" readonly></div>
+        <div class="field"><label for="fa-employment" data-i18n="finance.employment">Employment status</label>
+          <select id="fa-employment" name="Employment status">
+            <option>Employed (full-time)</option>
+            <option>Employed (part-time)</option>
+            <option>Self-employed</option>
+            <option>Retired</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label for="fa-income" data-i18n="finance.income">Approx. annual income (€)</label><input id="fa-income" name="Approx. annual income" type="number"></div>
+        <div class="field field--full"><label for="fa-notes" data-i18n="finance.notes">Anything else we should know?</label><textarea id="fa-notes" name="Notes"></textarea></div>
+        <div class="field field--full field--check">
+          <input type="checkbox" id="fa-consent" required>
+          <label for="fa-consent" data-i18n="finance.consent">I agree to be contacted about my finance application *</label>
+        </div>
+        <div class="field field--full"><button class="btn btn--primary" type="submit" data-i18n="form.submitApplication">Submit application</button></div>
+      </form>
+      <p class="form__note" style="max-width:820px;margin-top:14px;" data-i18n="finance.applyNote">Submitting sends your details to Bahram Automobile via WhatsApp so we can respond quickly — this is an enquiry, not a binding finance agreement.</p>
+    </section>
+
+    <section class="section" aria-labelledby="finance-info-title">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="finance.infoEyebrow">Good to know</p><h2 class="section__title" id="finance-info-title" data-i18n="finance.infoTitle">Finance information</h2></div>
+      </div>
+      <div class="card-grid">
+        <div class="testimonial"><h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="finance.who.title">Who can apply</h3><p data-i18n="finance.who.body">Most buyers 18+ with a valid address and regular income can apply. We'll confirm eligibility with you directly.</p></div>
+        <div class="testimonial"><h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="finance.time.title">How long it takes</h3><p data-i18n="finance.time.body">Initial responses are typically same-day once we have your application details.</p></div>
+        <div class="testimonial"><h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="finance.need.title">What you'll need</h3><p data-i18n="finance.need.body">Proof of ID, proof of address, and recent income evidence — we'll confirm the exact list when we follow up.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__brand">Bahram Automobile</p>
+        <p data-i18n="footer.tagline">Hand-picked, fully inspected new and used cars.</p>
+      </div>
+      <div><h4 data-i18n="footer.explore">Explore</h4><ul><li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li><li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li></ul></div>
+      <div><h4 data-i18n="footer.company">Company</h4><ul><li><a href="about.html" data-i18n="footer.aboutUs">About us</a></li><li><a href="terms.html" data-i18n="footer.terms">Terms &amp; privacy</a></li></ul></div>
+      <div><h4 data-i18n="footer.contact">Contact</h4><ul><li><a href="tel:015901671119">015 901 671 119</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom"><span>© <span id="year"></span> Bahram Automobile.</span></div>
+  </footer>
+
+  <div class="sticky-contact" id="sticky-contact"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/finance.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

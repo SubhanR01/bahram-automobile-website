@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0c0b">
+  <title>Vehicle — Bahram Automobile</title>
+  <meta name="description" content="Full specification, photos, and finance estimate for this Bahram Automobile listing.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .vehicle-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+    .vehicle-price-block { position: sticky; top: 90px; padding: 24px; border: 1px solid var(--line); background: var(--paper-dim); }
+    .vehicle-price-block .price { font-size: 34px; font-weight: 800; color: var(--heritage-dim); }
+    .vehicle-actions { display: grid; gap: 10px; margin-top: 18px; }
+    @media (max-width: 900px) {
+      .vehicle-layout { grid-template-columns: 1fr; }
+      .vehicle-price-block { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__brand" href="index.html">Bahram <span>Automobile</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="inventory.html" aria-current="page" data-i18n="nav.inventory">Inventory</a></li>
+        <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
+        <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang-switcher" id="lang-switcher" aria-label="Language"></div>
+      <a class="btn btn--outline btn--sm" href="inventory.html" data-i18n="nav.backToInventory">← Back to inventory</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="nav.menu">Menu</button>
+    </div>
+  </header>
+
+  <main id="vehicle-page">
+    <section class="section">
+      <p class="micro" style="margin-bottom:10px;"><a href="inventory.html" data-i18n="nav.inventory">Inventory</a> / <span data-vehicle-title>Loading…</span></p>
+      <h1 style="margin:0 0 6px;font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.03em;text-transform:uppercase;" data-vehicle-title>Loading…</h1>
+      <p class="micro" data-vehicle-meta style="color:var(--track);"></p>
+
+      <div class="vehicle-layout" style="margin-top:32px;">
+        <div>
+          <div id="vehicle-gallery"></div>
+          <div style="margin-top:36px;">
+            <h2 style="font-size:22px;text-transform:uppercase;letter-spacing:-.02em;" data-i18n="vehicle.aboutThisCar">About this car</h2>
+            <p data-vehicle-description style="font-size:16px;line-height:1.6;max-width:60ch;"></p>
+          </div>
+          <div style="margin-top:36px;">
+            <h2 style="font-size:22px;text-transform:uppercase;letter-spacing:-.02em;" data-i18n="vehicle.fullSpec">Full specification</h2>
+            <table class="table--spec" id="vehicle-spec"></table>
+          </div>
+        </div>
+
+        <aside>
+          <div class="vehicle-price-block">
+            <p class="micro" style="margin:0 0 4px;"><span data-i18n="vehicle.lot">Lot</span> <span data-vehicle-lot></span></p>
+            <div class="price" data-vehicle-price></div>
+            <p class="micro" id="finance-quick-estimate" style="margin-top:6px;color:var(--track);"></p>
+            <div class="vehicle-actions">
+              <a class="btn btn--primary btn--block" id="reserve-btn" href="#" target="_blank" rel="noopener" data-i18n="vehicle.reserveNow">Reserve now</a>
+              <a class="btn btn--outline btn--block" id="enquire-btn" href="#" target="_blank" rel="noopener" data-i18n="vehicle.enquireNow">Enquire now</a>
+              <a class="btn btn--outline btn--block" id="finance-link" href="finance.html" data-i18n="vehicle.financeQuote">Get finance quote for this car</a>
+              <button class="btn btn--outline btn--block" id="compare-toggle" type="button" data-i18n="vehicle.addCompare">Add to compare</button>
+            </div>
+          </div>
+
+          <div id="reserve" class="form__note" style="margin-top:16px;" data-i18n="vehicle.reserveNote">
+            Reserving opens a pre-filled WhatsApp message with this car's details — no payment is taken online. We'll confirm hold terms directly with you.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="enquire">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="vehicle.enquireEyebrow">Ask a question</p><h2 class="section__title" data-i18n="vehicle.enquireTitle">Enquire about this car</h2></div>
+        <p class="section__aside" data-i18n="vehicle.enquireAside">Prefer a form to WhatsApp? Send it here and we'll reply the same way.</p>
+      </div>
+      <form class="form form--2col" data-lead-form="enquire" style="max-width:760px;">
+        <div class="field"><label for="eq-name" data-i18n="form.fullName">Full name *</label><input id="eq-name" name="name" required></div>
+        <div class="field"><label for="eq-phone" data-i18n="form.phone">Phone *</label><input id="eq-phone" name="phone" type="tel" required></div>
+        <div class="field field--full"><label for="eq-msg" data-i18n="form.message">Message</label><textarea id="eq-msg" name="message" placeholder="Any questions about this car?"></textarea></div>
+        <div class="field field--full"><button class="btn btn--primary" type="submit" data-i18n="form.sendEnquiry">Send enquiry</button></div>
+      </form>
+    </section>
+
+    <section class="section" aria-labelledby="similar-title">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="vehicle.similarEyebrow">You might also like</p><h2 class="section__title" id="similar-title" data-i18n="vehicle.similarTitle">Similar vehicles</h2></div>
+      </div>
+      <div class="card-grid" id="similar-vehicles"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__brand">Bahram Automobile</p>
+        <p data-i18n="footer.tagline">Hand-picked, fully inspected new and used cars. Message us on WhatsApp or Instagram to book a viewing.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <ul>
+          <li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li>
+          <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
+          <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+          <li><a href="compare.html" data-i18n="nav.compare">Compare vehicles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.company">Company</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="footer.aboutUs">About us</a></li>
+          <li><a href="terms.html" data-i18n="footer.terms">Terms &amp; privacy</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact">Contact</h4>
+        <ul>
+          <li><a href="tel:015901671119">015 901 671 119</a></li>
+          <li><a href="mailto:hello@bahramautomobile.example">hello@bahramautomobile.example</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© <span id="year"></span> Bahram Automobile. <span data-i18n="footer.rights">All rights reserved.</span></span>
+    </div>
+  </footer>
+
+  <div class="sticky-contact" id="sticky-contact"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/inventory-render.js"></script>
+  <script src="assets/js/vehicle.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

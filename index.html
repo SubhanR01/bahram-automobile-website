@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0c0b">
+  <title>Bahram Automobile — Hand-Picked, Fully Inspected Cars</title>
+  <meta name="description" content="Bahram Automobile is a curated dealership of hand-picked, fully inspected new and used cars. Browse inventory, get a finance quote, book a test drive, or part-exchange your car.">
+  <link rel="canonical" href="index.html">
+  <meta property="og:title" content="Bahram Automobile">
+  <meta property="og:description" content="Hand-picked, fully inspected performance and daily cars.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Page-specific: cinematic hero (shortened film) */
+    .hero-sequence { position: relative; height: 320vh; background: var(--carbon); }
+    .hero-stage { position: sticky; top: 0; width: 100%; height: 100svh; overflow: hidden; background: var(--carbon); isolation: isolate; }
+    #hero-canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; }
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(10,12,11,.72) 0%, rgba(10,12,11,.18) 40%, transparent 66%),
+        linear-gradient(0deg, rgba(10,12,11,.82) 0%, transparent 42%);
+      pointer-events: none;
+    }
+    .hero-copy {
+      position: absolute; inset: 0; z-index: 3;
+      display: grid; grid-template-columns: repeat(12, 1fr);
+      align-content: end; column-gap: 16px;
+      padding: 96px var(--gutter) 96px;
+      color: var(--paper);
+    }
+    .hero-copy__inner { grid-column: 1 / 9; }
+    .hero-eyebrow { display:flex; align-items:center; gap:12px; margin:0 0 18px; }
+    .hero-eyebrow::before { content:""; width:26px; height:2px; background: var(--heritage); }
+    .hero-title { margin:0; font-size: clamp(46px, 8vw, 108px); font-weight: 800; letter-spacing: -.055em; line-height: .92; text-transform: uppercase; }
+    .hero-deck { max-width: 34rem; margin: 20px 0 30px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.45; color: rgba(241,239,230,.86); }
+    .hero-ctas { display:flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
+    .hero-search {
+      display: grid; grid-template-columns: repeat(5, 1fr) auto;
+      gap: 10px; max-width: 900px;
+      background: rgba(10,12,11,.55); backdrop-filter: blur(6px);
+      padding: 14px; border: 1px solid rgba(241,239,230,.25);
+    }
+    .hero-search select, .hero-search input {
+      width: 100%; height: 44px; padding: 0 10px; border: 1px solid rgba(241,239,230,.3);
+      background: rgba(241,239,230,.06); color: var(--paper); font-family: var(--display); font-size: 13.5px;
+    }
+    .hero-search select option { color: #111; }
+    .hero-scroll-cue { position:absolute; right: var(--gutter); bottom: 28px; z-index:3; color: var(--paper); display:flex; align-items:center; gap:8px; }
+    .hero-scroll-cue::after { content:""; width:16px;height:16px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; transform: rotate(45deg) translate(-2px,2px); animation: cue 1.8s ease-in-out infinite; }
+    @keyframes cue { 0%,100%{opacity:.35;} 50%{opacity:1;} }
+
+    .offer-banner {
+      display:flex; align-items:center; justify-content:space-between; gap: 16px; flex-wrap:wrap;
+      padding: 16px var(--gutter); background: var(--heritage); color: var(--carbon);
+    }
+
+    @media (max-width: 900px) {
+      .hero-sequence { height: 260vh; }
+      .hero-copy__inner { grid-column: 1 / 13; }
+      .hero-search { grid-template-columns: 1fr 1fr; }
+      .hero-search .btn { grid-column: 1 / -1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-sequence { height: 100svh; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__brand" href="index.html">Bahram <span>Automobile</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" aria-current="page" data-i18n="nav.home">Home</a></li>
+        <li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li>
+        <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
+        <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang-switcher" id="lang-switcher" aria-label="Language"></div>
+      <a class="btn btn--outline btn--sm" href="inventory.html" data-i18n="nav.viewInventory">View Inventory</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="nav.menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ CINEMATIC HERO ============ -->
+    <section class="hero-sequence" id="hero-sequence" aria-label="Bahram Automobile — cinematic introduction">
+      <div class="hero-stage" id="hero-stage">
+        <canvas id="hero-canvas" role="img" aria-label="Cinematic footage from a Bahram Automobile feature film, illustrating the standard behind every car we sell"></canvas>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <div class="hero-copy__inner">
+            <p class="hero-eyebrow micro" data-i18n="hero.eyebrow">Bahram Automobile</p>
+            <h1 class="hero-title" data-i18n-html="hero.title">Welcome to<br>Bahram Automobile</h1>
+            <p class="hero-deck" data-i18n="hero.deck">A curated dealership of hand-picked, fully inspected new and used cars. No volume stock, no surprises — every car earns its place on our lot.</p>
+            <div class="hero-ctas">
+              <a class="btn btn--primary" href="inventory.html" data-i18n="hero.viewInventory">View Inventory</a>
+              <a class="btn btn--outline-light" href="contact.html#test-drive" data-i18n="hero.bookTestDrive">Book a Test Drive</a>
+              <a class="btn btn--outline-light" href="finance.html" data-i18n="hero.getFinanceQuote">Get Finance Quote</a>
+              <a class="btn btn--whatsapp" href="contact.html" data-i18n="hero.contactUs">Contact Us</a>
+            </div>
+            <form class="hero-search" id="home-search" role="search" aria-label="Search vehicles">
+              <select name="make" aria-label="Make"><option value="" data-i18n="hero.anyMake">Any make</option></select>
+              <select name="bodyType" aria-label="Body type"><option value="" data-i18n="hero.anyBody">Any body type</option></select>
+              <select name="fuel" aria-label="Fuel type"><option value="" data-i18n="hero.anyFuel">Any fuel</option></select>
+              <input type="number" name="priceMax" placeholder="Max price (€)" aria-label="Max price" data-i18n-placeholder="hero.maxPrice">
+              <input type="number" name="yearMin" placeholder="Min year" aria-label="Min year" data-i18n-placeholder="hero.minYear">
+              <button class="btn btn--primary" type="submit" data-i18n="hero.search">Search</button>
+            </form>
+          </div>
+        </div>
+        <span class="hero-scroll-cue micro" aria-hidden="true" data-i18n="hero.scroll">Scroll</span>
+      </div>
+    </section>
+
+    <div class="offer-banner">
+      <span class="micro" data-i18n="hero.offerBanner">This month: 0% deposit contribution on selected finance-eligible arrivals</span>
+      <a class="btn btn--sm" href="finance.html" style="background:var(--carbon);border-color:var(--carbon);color:var(--paper);" data-i18n="hero.getFinance">Get finance quote</a>
+    </div>
+
+    <!-- ============ FEATURED VEHICLES ============ -->
+    <section class="section" aria-labelledby="featured-title">
+      <div class="section__head">
+        <div>
+          <p class="section__eyebrow micro" data-i18n="section.featuredEyebrow">Featured</p>
+          <h2 class="section__title" id="featured-title" data-i18n="section.featuredTitle">Featured vehicles</h2>
+        </div>
+        <p class="section__aside" data-i18n="section.featuredAside">A short list of what we'd put in our own driveway right now.</p>
+      </div>
+      <div class="card-grid" id="featured-vehicles" data-reveal></div>
+    </section>
+
+    <!-- ============ NEW ARRIVALS ============ -->
+    <section class="section section--soft" aria-labelledby="arrivals-title">
+      <div class="section__head">
+        <div>
+          <p class="section__eyebrow micro" data-i18n="section.arrivalsEyebrow">Just in</p>
+          <h2 class="section__title" id="arrivals-title" data-i18n="section.arrivalsTitle">New arrivals</h2>
+        </div>
+        <p class="section__aside" data-i18n="section.arrivalsAside">Recently passed our 150-point inspection and listed for sale.</p>
+      </div>
+      <div class="card-grid" id="new-arrivals" data-reveal></div>
+    </section>
+
+    <!-- ============ SPECIAL OFFERS ============ -->
+    <section class="section" aria-labelledby="offers-title">
+      <div class="section__head">
+        <div>
+          <p class="section__eyebrow micro" data-i18n="section.offersEyebrow">Priced to move</p>
+          <h2 class="section__title" id="offers-title" data-i18n="section.offersTitle">Special offers</h2>
+        </div>
+        <p class="section__aside" data-i18n="section.offersAside">Reduced this month as part of our early-arrivals clearance.</p>
+      </div>
+      <div class="card-grid" id="special-offers" data-reveal></div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section section--dark" aria-labelledby="services-title">
+      <div class="section__head">
+        <div>
+          <p class="section__eyebrow micro" data-i18n="section.servicesEyebrow">What we do</p>
+          <h2 class="section__title" id="services-title" data-i18n="section.servicesTitle">Built around one standard</h2>
+        </div>
+        <p class="section__aside" data-i18n="section.servicesAside">The same process behind every car we sell, whatever the badge.</p>
+      </div>
+      <div class="card-grid" data-reveal>
+        <div class="testimonial"><span class="testimonial__stars">01</span><h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="service.sales.title">Curated sales</h3><p data-i18n="service.sales.body">A short, hand-picked inventory of new and used cars, updated as arrivals pass inspection.</p></div>
+        <div class="testimonial"><span class="testimonial__stars">02</span><h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="service.inspection.title">150-point inspection</h3><p data-i18n="service.inspection.body">Every car is inspected before listing — mechanical, electrical, and cosmetic.</p></div>
+        <div class="testimonial"><span class="testimonial__stars">03</span><h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="service.tradein.title">Trade-in support</h3><p data-i18n="service.tradein.body">Bring your current car in for an honest valuation against anything in our lot.</p></div>
+        <div class="testimonial"><span class="testimonial__stars">04</span><h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="service.finance.title">Financing help</h3><p data-i18n="service.finance.body">We help structure payment plans and connect you with financing partners.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section" aria-labelledby="reviews-title">
+      <div class="section__head">
+        <div>
+          <p class="section__eyebrow micro" data-i18n="section.reviewsEyebrow">Customer reviews</p>
+          <h2 class="section__title" id="reviews-title" data-i18n="section.reviewsTitle">What buyers say</h2>
+        </div>
+        <p class="section__aside" data-i18n="section.reviewsAside">Sample testimonials — replace with your own verified reviews any time.</p>
+      </div>
+      <div class="testimonials" data-reveal>
+        <div class="testimonial">
+          <span class="testimonial__stars">★★★★★</span>
+          <p data-i18n="review1">"Full history, no pressure, and the car was exactly as described. Easiest car purchase I've made."</p>
+          <div class="testimonial__name" data-i18n="review1.name">— A. Karim, bought a Mercedes C 180</div>
+        </div>
+        <div class="testimonial">
+          <span class="testimonial__stars">★★★★★</span>
+          <p data-i18n="review2">"They walked me through the inspection report line by line before I even asked. That's rare."</p>
+          <div class="testimonial__name" data-i18n="review2.name">— S. Doyle, bought a Mercedes A 250e</div>
+        </div>
+        <div class="testimonial">
+          <span class="testimonial__stars">★★★★☆</span>
+          <p data-i18n="review3">"Fast responses on WhatsApp, fair trade-in value on my old car, smooth handover."</p>
+          <div class="testimonial__name" data-i18n="review3.name">— M. Yusuf, part-exchanged a hatchback</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BANNER ============ -->
+    <section class="section section--petrol" style="text-align:center;">
+      <h2 class="section__title" style="margin:0 0 14px;" data-i18n="section.ctaTitle">Ready to see one in person?</h2>
+      <p class="section__aside" style="justify-self:center;margin:0 auto 28px;" data-i18n="section.ctaAside">Book a test drive, get a finance quote, or just message us — whichever's easiest.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a class="btn btn--primary" href="inventory.html" data-i18n="hero.viewInventory">View Inventory</a>
+        <a class="btn btn--outline-light" href="contact.html#test-drive" data-i18n="hero.bookTestDrive">Book a Test Drive</a>
+        <a class="btn btn--outline-light" href="finance.html" data-i18n="hero.getFinanceQuote">Get Finance Quote</a>
+        <a class="btn btn--whatsapp" href="contact.html" data-i18n="hero.contactUs">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__brand">Bahram Automobile</p>
+        <p data-i18n="footer.tagline">Hand-picked, fully inspected new and used cars. Message us on WhatsApp or Instagram to book a viewing.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <ul>
+          <li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li>
+          <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
+          <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+          <li><a href="compare.html" data-i18n="nav.compare">Compare vehicles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.company">Company</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="footer.aboutUs">About us</a></li>
+          <li><a href="about.html#reviews" data-i18n="footer.reviews">Reviews</a></li>
+          <li><a href="terms.html" data-i18n="footer.terms">Terms &amp; privacy</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact">Contact</h4>
+        <ul>
+          <li><a href="tel:015901671119">015 901 671 119</a></li>
+          <li><a href="mailto:hello@bahramautomobile.example">hello@bahramautomobile.example</a></li>
+          <li><a href="https://www.instagram.com/bahram.automobile?igsh=MXF3OGhhazBxNDl0cA==" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© <span id="year"></span> Bahram Automobile. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <span data-i18n="footer.credentials">Registered dealer — credentials on request</span>
+    </div>
+  </footer>
+
+  <div class="sticky-contact" id="sticky-contact"></div>
+  <div class="compare-tray" id="compare-tray"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/compare.js"></script>
+  <script src="assets/js/inventory-render.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---- Shortened cinematic hero engine (3 chapters worth of frames) ----
+    (() => {
+      const FRAME_COUNT = 114;
+      const FRAME_PAD = 4;
+      const LERP_FACTOR = 0.14;
+      const MOBILE_QUERY = "(max-width: 900px)";
+      const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
+
+      const sequence = document.getElementById("hero-sequence");
+      const stage = document.getElementById("hero-stage");
+      const canvas = document.getElementById("hero-canvas");
+      const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
+      const reducedMotion = window.matchMedia(REDUCED_QUERY).matches;
+      const mobileMedia = window.matchMedia(MOBILE_QUERY);
+
+      let useMobile = mobileMedia.matches;
+      let dir = useMobile ? "frames/mobile" : "frames/desktop";
+      const images = new Array(FRAME_COUNT);
+      const loaded = new Uint8Array(FRAME_COUNT);
+      let currentFrame = 0;
+      let targetFrame = 0;
+      let lastDrawn = -1;
+      let sequenceTop = 0;
+      let sequenceDistance = 1;
+
+      function frameUrl(i) { return `${dir}/frame-${String(i + 1).padStart(FRAME_PAD, "0")}.webp`; }
+
+      function loadFrame(i) {
+        if (loaded[i]) return;
+        const img = new Image();
+        img.decoding = "async";
+        img.onload = () => { loaded[i] = 1; };
+        img.src = frameUrl(i);
+        images[i] = img;
+      }
+
+      function nearestLoaded(i) {
+        if (loaded[i]) return i;
+        for (let d = 1; d < FRAME_COUNT; d += 1) {
+          if (i - d >= 0 && loaded[i - d]) return i - d;
+          if (i + d < FRAME_COUNT && loaded[i + d]) return i + d;
+        }
+        return -1;
+      }
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(stage.clientWidth * dpr);
+        canvas.height = Math.round(stage.clientHeight * dpr);
+        lastDrawn = -1;
+      }
+
+      function updateMetrics() {
+        const rect = sequence.getBoundingClientRect();
+        sequenceTop = window.scrollY + rect.top;
+        sequenceDistance = Math.max(1, rect.height - window.innerHeight);
+      }
+
+      function draw(i) {
+        const resolved = nearestLoaded(Math.max(0, Math.min(FRAME_COUNT - 1, i)));
+        if (resolved < 0 || resolved === lastDrawn) return;
+        const img = images[resolved];
+        if (!img || !img.naturalWidth) return;
+        const w = canvas.width, h = canvas.height;
+        ctx.fillStyle = "#0a0c0b";
+        ctx.fillRect(0, 0, w, h);
+        const scale = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+        const dw = img.naturalWidth * scale, dh = img.naturalHeight * scale;
+        ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+        lastDrawn = resolved;
+      }
+
+      function tick() {
+        const raw = Math.max(0, Math.min(1, (window.scrollY - sequenceTop) / sequenceDistance));
+        targetFrame = Math.round(raw * (FRAME_COUNT - 1));
+        currentFrame += (targetFrame - currentFrame) * LERP_FACTOR;
+        draw(Math.round(currentFrame));
+        if (!reducedMotion) requestAnimationFrame(tick);
+      }
+
+      for (let i = 0; i < FRAME_COUNT; i += 4) loadFrame(i);
+      loadFrame(0);
+      window.setTimeout(() => { for (let i = 0; i < FRAME_COUNT; i += 1) loadFrame(i); }, 400);
+
+      resize();
+      updateMetrics();
+      if (reducedMotion) {
+        loadFrame(20);
+        window.setTimeout(() => draw(20), 200);
+      } else {
+        tick();
+      }
+
+      window.addEventListener("resize", () => { resize(); updateMetrics(); }, { passive: true });
+    })();
+  </script>
+  <script src="assets/js/forms.js"></script>
+</body>
+</html>

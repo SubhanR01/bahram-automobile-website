@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0c0b">
+  <title>Contact — Bahram Automobile</title>
+  <meta name="description" content="Contact Bahram Automobile: WhatsApp, call, book a test drive, or request a callback. Opening hours and location.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); }
+    .contact-quick { display: grid; gap: 10px; }
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+    .hours-table td { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+    .map-embed { width: 100%; height: 280px; border: 1px solid var(--line); filter: grayscale(.15); }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__brand" href="index.html">Bahram <span>Automobile</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li>
+        <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
+        <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="contact.html" aria-current="page" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang-switcher" id="lang-switcher" aria-label="Language"></div>
+      <a class="btn btn--outline btn--sm" href="tel:015901671119" data-i18n="nav.callNow">Call now</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="nav.menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="contact.eyebrow">Get in touch</p><h1 class="section__title" data-i18n="contact.title">Contact Bahram Automobile</h1></div>
+        <p class="section__aside" data-i18n="contact.aside">WhatsApp is the fastest way to reach us. Prefer a call or email? Those work too.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-quick">
+            <a class="btn btn--whatsapp btn--block" href="https://wa.me/015901671119" target="_blank" rel="noopener" data-i18n="contact.whatsapp">Message on WhatsApp</a>
+            <a class="btn btn--outline btn--block" href="tel:015901671119" data-i18n="contact.call">Call now — 015 901 671 119</a>
+            <a class="btn btn--outline btn--block" href="mailto:hello@bahramautomobile.example" data-i18n="contact.email">Email us</a>
+            <a class="btn btn--outline btn--block" href="https://www.instagram.com/bahram.automobile?igsh=MXF3OGhhazBxNDl0cA==" target="_blank" rel="noopener">Instagram</a>
+          </div>
+
+          <h3 style="margin:28px 0 4px;text-transform:uppercase;font-size:16px;" data-i18n="contact.hours">Opening hours</h3>
+          <table class="hours-table">
+            <tr><td>Monday – Friday</td><td>9:00 – 18:00</td></tr>
+            <tr><td>Saturday</td><td>10:00 – 16:00</td></tr>
+            <tr><td>Sunday</td><td>By appointment</td></tr>
+          </table>
+          <p class="form__note" style="margin-top:8px;" data-i18n="contact.hoursNote">Hours are a placeholder — update assets/js/main.js (BAHRAM_CONTACT.hours) with your real hours.</p>
+
+          <h3 style="margin:28px 0 8px;text-transform:uppercase;font-size:16px;" data-i18n="contact.location">Location</h3>
+          <iframe class="map-embed" title="Map location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Bahram+Automobile&output=embed"></iframe>
+          <p class="form__note" style="margin-top:8px;" data-i18n="contact.mapNote">Placeholder map pin — replace the query in this iframe with your exact showroom address for an accurate location.</p>
+        </div>
+
+        <div>
+          <h3 style="margin:0 0 12px;text-transform:uppercase;font-size:16px;" data-i18n="contact.generalEnquiry">General enquiry</h3>
+          <form class="form" data-lead-form="contact">
+            <div class="field"><label for="c-name" data-i18n="form.fullName">Full name *</label><input id="c-name" name="name" required></div>
+            <div class="field"><label for="c-email" data-i18n="form.email.required">Email *</label><input id="c-email" name="email" type="email" required></div>
+            <div class="field"><label for="c-phone" data-i18n="form.phone">Phone</label><input id="c-phone" name="phone" type="tel"></div>
+            <div class="field"><label for="c-msg" data-i18n="form.message.required">Message *</label><textarea id="c-msg" name="message" required></textarea></div>
+            <div class="field"><button class="btn btn--primary" type="submit" data-i18n="form.sendMessage">Send message</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="test-drive">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="contact.testDriveEyebrow">Book a visit</p><h2 class="section__title" data-i18n="contact.testDriveTitle">Book a test drive</h2></div>
+        <p class="section__aside" data-i18n="contact.testDriveAside">Tell us which car and when — we'll confirm a time by WhatsApp.</p>
+      </div>
+      <form class="form form--2col" data-lead-form="test-drive" style="max-width:820px;">
+        <div class="field"><label for="td-car" data-i18n="contact.whichCar">Which car?</label>
+          <select id="td-car" name="Vehicle" data-vehicle-select></select>
+        </div>
+        <div class="field"><label for="td-date" data-i18n="contact.preferredDate">Preferred date</label><input id="td-date" name="Preferred date" type="date"></div>
+        <div class="field"><label for="td-time" data-i18n="contact.preferredTime">Preferred time</label><input id="td-time" name="Preferred time" type="time"></div>
+        <div class="field"><label for="td-name" data-i18n="form.fullName">Full name *</label><input id="td-name" name="name" required></div>
+        <div class="field field--full"><label for="td-phone" data-i18n="form.phone">Phone *</label><input id="td-phone" name="phone" type="tel" required></div>
+        <div class="field field--full"><button class="btn btn--primary" type="submit" data-i18n="form.bookTestDrive">Book test drive</button></div>
+      </form>
+    </section>
+
+    <section class="section" id="callback">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="contact.callbackEyebrow">Can't talk now?</p><h2 class="section__title" data-i18n="contact.callbackTitle">Request a callback</h2></div>
+        <p class="section__aside" data-i18n="contact.callbackAside">Leave your number and the best time — we'll call you back.</p>
+      </div>
+      <form class="form form--2col" data-lead-form="callback" style="max-width:820px;">
+        <div class="field"><label for="cb-name" data-i18n="form.fullName">Full name *</label><input id="cb-name" name="name" required></div>
+        <div class="field"><label for="cb-phone" data-i18n="form.phone">Phone *</label><input id="cb-phone" name="phone" type="tel" required></div>
+        <div class="field field--full"><label for="cb-time" data-i18n="contact.bestTime">Best time to call</label><input id="cb-time" name="Best time to call" placeholder="e.g. weekday afternoons"></div>
+        <div class="field field--full"><button class="btn btn--primary" type="submit" data-i18n="form.requestCallback">Request callback</button></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div><p class="site-footer__brand">Bahram Automobile</p><p data-i18n="footer.tagline">Hand-picked, fully inspected new and used cars.</p></div>
+      <div><h4 data-i18n="footer.explore">Explore</h4><ul><li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li><li><a href="finance.html" data-i18n="nav.finance">Finance</a></li></ul></div>
+      <div><h4 data-i18n="footer.company">Company</h4><ul><li><a href="about.html" data-i18n="footer.aboutUs">About us</a></li><li><a href="terms.html" data-i18n="footer.terms">Terms &amp; privacy</a></li></ul></div>
+      <div><h4 data-i18n="footer.contact">Contact</h4><ul><li><a href="tel:015901671119">015 901 671 119</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom"><span>© <span id="year"></span> Bahram Automobile.</span></div>
+  </footer>
+
+  <div class="sticky-contact" id="sticky-contact"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    function renderVehicleSelect() {
+      const sel = document.querySelector("[data-vehicle-select]");
+      if (!sel) return;
+      sel.innerHTML = `<option value="">${t("contact.notSure")}</option>` +
+        (window.BAHRAM_INVENTORY || []).map((v) => `<option>${v.year} ${v.make} ${v.model}</option>`).join("");
+    }
+    renderVehicleSelect();
+    document.addEventListener("lang:change", renderVehicleSelect);
+  </script>
+</body>
+</html>

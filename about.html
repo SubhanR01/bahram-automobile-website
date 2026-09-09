@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0c0b">
+  <title>About — Bahram Automobile</title>
+  <meta name="description" content="About Bahram Automobile: our inspection standard, warranty, dealer credentials, and customer reviews.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__brand" href="index.html">Bahram <span>Automobile</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li>
+        <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
+        <li><a href="part-exchange.html" data-i18n="nav.partExchange">Part Exchange</a></li>
+        <li><a href="about.html" aria-current="page" data-i18n="nav.about">About</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang-switcher" id="lang-switcher" aria-label="Language"></div>
+      <a class="btn btn--outline btn--sm" href="contact.html" data-i18n="nav.contactUs">Contact Us</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="nav.menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="about.eyebrow">Who we are</p><h1 class="section__title" data-i18n="about.title">About Bahram Automobile</h1></div>
+        <p class="section__aside" data-i18n="about.aside">A short-inventory dealership built around one idea: every car should earn its place on the lot.</p>
+      </div>
+      <p style="max-width:68ch;font-size:16.5px;line-height:1.65;" data-i18n="about.body">
+        Bahram Automobile is a curated dealership rather than a high-volume lot. We hand-select each car, put it through
+        a documented inspection before it's listed, and keep a short, honest inventory rather than a large, unverified one.
+        Whether you're after a performance coupe or a dependable daily, the same standard applies to every car we sell.
+      </p>
+      <p class="form__note" style="max-width:68ch;margin-top:12px;" data-i18n="about.note">
+        This paragraph is starter copy — edit it with your dealership's real story, founding year, and specialities.
+      </p>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="warranty-title">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="about.trustEyebrow">Trust</p><h2 class="section__title" id="warranty-title" data-i18n="about.trustTitle">Warranty &amp; credentials</h2></div>
+      </div>
+      <div class="card-grid">
+        <div class="testimonial">
+          <h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="about.warranty.title">Warranty</h3>
+          <p data-i18n="about.warranty.body">Every vehicle includes at least a 3-month Bahram Automobile mechanical warranty, with extended options available on eligible cars. See each listing for specific terms.</p>
+        </div>
+        <div class="testimonial">
+          <h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="about.inspection.title">Inspection standard</h3>
+          <p data-i18n="about.inspection.body">150-point inspection covering engine, chassis, electronics, paint depth, and interior before any car is listed for sale.</p>
+        </div>
+        <div class="testimonial">
+          <h3 style="margin:0 0 8px;text-transform:uppercase;" data-i18n="about.credentials.title">Dealer credentials</h3>
+          <p data-i18n="about.credentials.body">Registered dealer — add your trade licence / registration number, VAT number, and any trade association memberships here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <div class="section__head">
+        <div><p class="section__eyebrow micro" data-i18n="about.reviewsEyebrow">Customer reviews</p><h2 class="section__title" id="reviews-title" data-i18n="about.reviewsTitle">Testimonials</h2></div>
+        <p class="section__aside" data-i18n="about.reviewsAside">Sample testimonials — replace with your own verified customer reviews.</p>
+      </div>
+      <div class="testimonials">
+        <div class="testimonial">
+          <span class="testimonial__stars">★★★★★</span>
+          <p data-i18n="review1">"Full history, no pressure, and the car was exactly as described. Easiest car purchase I've made."</p>
+          <div class="testimonial__name" data-i18n="review1.name">— A. Karim, bought a Mercedes C 180</div>
+        </div>
+        <div class="testimonial">
+          <span class="testimonial__stars">★★★★★</span>
+          <p data-i18n="review2">"They walked me through the inspection report line by line before I even asked. That's rare."</p>
+          <div class="testimonial__name" data-i18n="review2.name">— S. Doyle, bought a Mercedes A 250e</div>
+        </div>
+        <div class="testimonial">
+          <span class="testimonial__stars">★★★★☆</span>
+          <p data-i18n="review3">"Fast responses on WhatsApp, fair trade-in value on my old car, smooth handover."</p>
+          <div class="testimonial__name" data-i18n="review3.name">— M. Yusuf, part-exchanged a hatchback</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__grid">
+      <div><p class="site-footer__brand">Bahram Automobile</p><p data-i18n="footer.tagline">Hand-picked, fully inspected new and used cars.</p></div>
+      <div><h4 data-i18n="footer.explore">Explore</h4><ul><li><a href="inventory.html" data-i18n="nav.inventory">Inventory</a></li><li><a href="finance.html" data-i18n="nav.finance">Finance</a></li></ul></div>
+      <div><h4 data-i18n="footer.company">Company</h4><ul><li><a href="about.html" data-i18n="footer.aboutUs">About us</a></li><li><a href="terms.html" data-i18n="footer.terms">Terms &amp; privacy</a></li></ul></div>
+      <div><h4 data-i18n="footer.contact">Contact</h4><ul><li><a href="tel:015901671119">015 901 671 119</a></li></ul></div>
+    </div>
+    <div class="site-footer__bottom"><span>© <span id="year"></span> Bahram Automobile.</span></div>
+  </footer>
+
+  <div class="sticky-contact" id="sticky-contact"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
