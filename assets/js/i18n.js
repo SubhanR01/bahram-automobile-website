@@ -191,7 +191,7 @@ const BAHRAM_I18N = {
 
     "contact.eyebrow": "Get in touch", "contact.title": "Contact Bahram Automobile",
     "contact.aside": "WhatsApp is the fastest way to reach us. Prefer a call or email? Those work too.",
-    "contact.whatsapp": "Message on WhatsApp", "contact.call": "Call now — 015 901 671 119", "contact.email": "Email us",
+    "contact.whatsapp": "Message on WhatsApp", "contact.call": "Call now — +49 152 3345 6721", "contact.email": "Email us",
     "contact.hours": "Opening hours", "contact.hoursNote": "Hours are a placeholder — update assets/js/main.js (BAHRAM_CONTACT.hours) with your real hours.",
     "contact.location": "Location", "contact.mapNote": "Placeholder map pin — replace the query in this iframe with your exact showroom address for an accurate location.",
     "contact.generalEnquiry": "General enquiry",
@@ -340,7 +340,7 @@ const BAHRAM_I18N = {
 
     "contact.eyebrow": "Kontakt aufnehmen", "contact.title": "Bahram Automobile kontaktieren",
     "contact.aside": "WhatsApp ist der schnellste Weg, uns zu erreichen. Lieber anrufen oder eine E-Mail schreiben? Auch das geht.",
-    "contact.whatsapp": "Auf WhatsApp schreiben", "contact.call": "Jetzt anrufen — 015 901 671 119", "contact.email": "E-Mail schreiben",
+    "contact.whatsapp": "Auf WhatsApp schreiben", "contact.call": "Jetzt anrufen — +49 152 3345 6721", "contact.email": "E-Mail schreiben",
     "contact.hours": "Öffnungszeiten", "contact.hoursNote": "Die Öffnungszeiten sind ein Platzhalter — bitte in assets/js/main.js (BAHRAM_CONTACT.hours) durch Ihre echten Zeiten ersetzen.",
     "contact.location": "Standort", "contact.mapNote": "Platzhalter-Kartenpunkt — ersetzen Sie die Suchanfrage in diesem iframe durch Ihre genaue Adresse.",
     "contact.generalEnquiry": "Allgemeine Anfrage",
@@ -489,7 +489,7 @@ const BAHRAM_I18N = {
 
     "contact.eyebrow": "در تماس باشید", "contact.title": "تماس با بهرام آتومبیل",
     "contact.aside": "واتساپ سریع‌ترین راه تماس با ماست. تماس تلفنی یا ایمیل را ترجیح می‌دهید؟ آن‌ها هم امکان‌پذیرند.",
-    "contact.whatsapp": "پیام در واتساپ", "contact.call": "تماس بگیرید — ۰۱۵۹۰۱۶۷۱۱۱۹", "contact.email": "ایمیل به ما",
+    "contact.whatsapp": "پیام در واتساپ", "contact.call": "تماس بگیرید — ‎+49 152 3345 6721‎", "contact.email": "ایمیل به ما",
     "contact.hours": "ساعات کاری", "contact.hoursNote": "ساعات کاری فقط نمونه است — آن را در assets/js/main.js (BAHRAM_CONTACT.hours) با ساعات واقعی جایگزین کنید.",
     "contact.location": "موقعیت مکانی", "contact.mapNote": "پین نقشه نمونه است — عبارت جستجو در این iframe را با آدرس دقیق نمایشگاه خود جایگزین کنید.",
     "contact.generalEnquiry": "استعلام عمومی",

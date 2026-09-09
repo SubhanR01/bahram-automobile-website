@@ -67,6 +67,51 @@
       .hero-search .btn { grid-column: 1 / -1; }
     }
 
+    /* Mobile: the desktop hero (headline + deck + 4 CTAs + full search form)
+       is too tall for a single phone viewport and was getting clipped by
+       .hero-stage's overflow:hidden. Trim it down so everything fits. */
+    @media (max-width: 700px) {
+      .hero-copy {
+        padding: 84px 20px 28px;
+        align-content: end;
+      }
+      .hero-eyebrow { margin-bottom: 10px; }
+      .hero-eyebrow .micro { font-size: 10px; }
+      .hero-title {
+        font-size: clamp(34px, 10vw, 46px);
+        line-height: .98;
+        letter-spacing: -.03em;
+      }
+      .hero-deck {
+        margin: 12px 0 18px;
+        font-size: 14.5px;
+        line-height: 1.4;
+        max-width: none;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .hero-ctas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .hero-ctas .btn {
+        min-height: 42px;
+        padding: 0 10px;
+        font-size: 10px;
+        white-space: normal;
+        text-align: center;
+      }
+      /* The full 6-field search form doesn't fit on a phone hero — the
+         "View Inventory" button above already covers browsing, and the
+         inventory page has the same filters full-size. */
+      .hero-search { display: none; }
+      .hero-scroll-cue { display: none; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .hero-sequence { height: 100svh; }
     }
@@ -249,7 +294,7 @@
       <div>
         <h4 data-i18n="footer.contact">Contact</h4>
         <ul>
-          <li><a href="tel:015901671119">015 901 671 119</a></li>
+          <li><a href="tel:+4915233456721">+49 152 3345 6721</a></li>
           <li><a href="mailto:hello@bahramautomobile.example">hello@bahramautomobile.example</a></li>
           <li><a href="https://www.instagram.com/bahram.automobile?igsh=MXF3OGhhazBxNDl0cA==" target="_blank" rel="noopener">Instagram</a></li>
         </ul>

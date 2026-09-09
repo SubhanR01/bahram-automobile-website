@@ -11,9 +11,9 @@
 // every WhatsApp link, and the footer).
 // ---------------------------------------------------------------------
 const BAHRAM_CONTACT = {
-  whatsappNumber: "015901671119", // used exactly as provided, no country code assumed
-  phoneDisplay: "015 901 671 119",
-  phoneHref: "tel:015901671119",
+  whatsappNumber: "4915233456721", // demo placeholder number — replace with your real WhatsApp number
+  phoneDisplay: "+49 152 3345 6721",
+  phoneHref: "tel:+4915233456721",
   email: "hello@bahramautomobile.example",
   instagram: "https://www.instagram.com/bahram.automobile?igsh=MXF3OGhhazBxNDl0cA==",
   addressLine: "Placeholder address — replace with your real showroom location",
