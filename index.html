@@ -38,6 +38,7 @@
     .hero-eyebrow { display:flex; align-items:center; gap:12px; margin:0 0 18px; }
     .hero-eyebrow::before { content:""; width:26px; height:2px; background: var(--heritage); }
     .hero-title { margin:0; font-size: clamp(46px, 8vw, 108px); font-weight: 800; letter-spacing: -.055em; line-height: .92; text-transform: uppercase; }
+    html[lang="de"] .hero-title { font-size: clamp(38px, 6.4vw, 84px); }
     .hero-deck { max-width: 34rem; margin: 20px 0 30px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.45; color: rgba(241,239,230,.86); }
     .hero-ctas { display:flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
     .hero-search {
@@ -81,6 +82,9 @@
         font-size: clamp(34px, 10vw, 46px);
         line-height: .98;
         letter-spacing: -.03em;
+      }
+      html[lang="de"] .hero-title {
+        font-size: clamp(26px, 8vw, 38px);
       }
       .hero-deck {
         margin: 12px 0 18px;
